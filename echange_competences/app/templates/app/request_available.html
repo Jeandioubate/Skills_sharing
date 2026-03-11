@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Demandes correspondant à vos compétences</h2>
+
+<table border="1">
+
+<tr>
+<th>Date</th>
+<th>Activité</th>
+<th>Action</th>
+</tr>
+
+{% for demande in demandes %}
+
+<tr>
+
+<td>{{ demande.slot }}</td>
+
+<td>{{ demande.description }}</td>
+
+<td>
+
+<a href="{% url 'app:offer_help' demande.id %}">
+
+Se proposer
+
+</a>
+
+</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="3">Aucune demande disponible</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
