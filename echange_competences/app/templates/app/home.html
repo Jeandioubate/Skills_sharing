@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Prochains créneaux d'aide programmés</h2>
+
+<table border="1">
+
+<tr>
+<th>Date</th>
+<th>Compétence</th>
+<th>Activité</th>
+</tr>
+
+{% for slot in slots %}
+
+<tr>
+
+<td>{{ slot.slot }}</td>
+
+<td>{{ slot.required_skill }}</td>
+
+<td>{{ slot.description }}</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="3">Aucun créneau programmé</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h2>Compétences disponibles</h2>
+
+<ul>
+
+{% for skill in skills %}
+
+<li>{{ skill.name }}</li>
+
+{% endfor %}
+
+</ul>
+
+{% endblock %}
