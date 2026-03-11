@@ -24,11 +24,14 @@
 
 <a href="{% url 'app:request_available' %}">Demandes disponibles</a> |
 
-<a href="{% url logout %}">Déconnexion</a>
+<form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Déconnexion</button>
+</form>
 
 {% else %}
 
-<a href="{% url login %}">Connexion</a>
+<a href="{% url 'login' %}">Connexion</a>
 
 {% endif %}
 
