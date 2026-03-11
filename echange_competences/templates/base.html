@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Échange de compétences</title>
+</head>
+
+<body>
+
+<h1>Plateforme d'échange de compétences</h1>
+
+<nav>
+
+<a href="{% url 'app:home' %}">Accueil</a> |
+
+<a href="{% url 'app:skills_list' %}">Compétences</a> |
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'app:my_skills' %}">Mes compétences</a> |
+
+<a href="{% url 'app:create_request' %}">Demander de l'aide</a> |
+
+<a href="{% url 'app:request_available' %}">Demandes disponibles</a> |
+
+<a href="/logout/">Déconnexion</a>
+
+{% else %}
+
+<a href="/login/">Connexion</a>
+
+{% endif %}
+
+</nav>
+
+<hr>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+
+</html>
