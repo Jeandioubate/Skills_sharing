@@ -24,11 +24,11 @@
 
 <a href="{% url 'app:request_available' %}">Demandes disponibles</a> |
 
-<a href="/logout/">Déconnexion</a>
+<a href="{% url logout %}">Déconnexion</a>
 
 {% else %}
 
-<a href="/login/">Connexion</a>
+<a href="{% url login %}">Connexion</a>
 
 {% endif %}
 
