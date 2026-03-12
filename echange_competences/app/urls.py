@@ -14,5 +14,6 @@ urlpatterns = [
     path("my-skills/", views.my_skills, name="my_skills"),
     path("demande/", views.create_request, name="create_request"),
     path("demandes/", views.request_available, name="request_available"),
+    path("mes-demandes/", views.my_requests, name="my_requests"),
     path("offer_help/<int:demande_id>/", views.offer_help, name="offer_help"),
 ]
