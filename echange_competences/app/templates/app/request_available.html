@@ -1,17 +1,22 @@
-
 {% extends "base.html" %}
 
 {% block content %}
 
 <h2>Demandes correspondant à vos compétences</h2>
 
-<table border="1">
+<table class="table table-bordered table-hover">
+
+<thead class="table-primary">
 
 <tr>
 <th>Date</th>
 <th>Activité</th>
 <th>Action</th>
 </tr>
+
+</thead>
+
+<tbody>
 
 {% for demande in demandes %}
 
@@ -23,7 +28,8 @@
 
 <td>
 
-<a href="{% url 'app:offer_help' demande.id %}">
+<a class="btn btn-success btn-sm"
+href="{% url 'app:offer_help' demande.id %}">
 
 Se proposer
 
@@ -40,6 +46,8 @@ Se proposer
 </tr>
 
 {% endfor %}
+
+</tbody>
 
 </table>
 
