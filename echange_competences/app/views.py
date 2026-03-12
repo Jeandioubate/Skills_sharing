@@ -107,3 +107,12 @@ def offer_help(request, demande_id):
     demande.save()
 
     return redirect("app:request_available")
+
+# Afficher les demandes d'aide du même utilisateur
+
+@login_required
+def my_requests(request):
+
+    demandes = RequestHelp.objects.filter(applicant=request.user).order_by("-slot")
+
+    return render(request, "app/my_requests.html", {"demandes": demandes})
