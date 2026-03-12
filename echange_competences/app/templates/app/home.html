@@ -1,17 +1,24 @@
-
 {% extends "base.html" %}
 
 {% block content %}
 
-<h2>Prochains créneaux d'aide programmés</h2>
+<div class="row">
 
-<table border="1">
+<div class="col-md-8">
 
+<h2>Prochains créneaux d'aide</h2>
+
+<table class="table table-striped">
+
+<thead>
 <tr>
 <th>Date</th>
 <th>Compétence</th>
 <th>Activité</th>
 </tr>
+</thead>
+
+<tbody>
 
 {% for slot in slots %}
 
@@ -28,24 +35,38 @@
 {% empty %}
 
 <tr>
-<td colspan="3">Aucun créneau programmé</td>
+<td colspan="3">Aucun créneau disponible</td>
 </tr>
 
 {% endfor %}
 
+</tbody>
+
 </table>
 
+</div>
+
+
+<div class="col-md-4">
 
 <h2>Compétences disponibles</h2>
 
-<ul>
+<ul class="list-group">
 
 {% for skill in skills %}
 
-<li>{{ skill.name }}</li>
+<li class="list-group-item">
+
+{{ skill.name }}
+
+</li>
 
 {% endfor %}
 
 </ul>
+
+</div>
+
+</div>
 
 {% endblock %}
